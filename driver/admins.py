@@ -1,12 +1,6 @@
-# Copyright (C) 2021 By VeezMusicProject
-
-import cache.admins
 from typing import List
-
 from pyrogram.types import Chat
-from cache.admins import get as gett
-from cache.admins import set
-
+from cache.admins import get as gett, set
 
 async def get_administrators(chat: Chat) -> List[int]:
     get = gett(chat.id)

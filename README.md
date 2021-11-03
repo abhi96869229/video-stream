@@ -1,8 +1,7 @@
-<h2 align="centre">VIDEO STREAM BOT</h2>
-
-telegram bot project for streaming video on telegram video chat, powered by [py-tgcalls](https://github.com/pytgcalls/pytgcalls) and [pyrogram](https://github.com/pyrogram/pyrogram)
-
-<p align="center"><a href="https://t.me/veezvidstreambot"><img src="https://telegra.ph/file/4e8717d59d74412cf0e50.jpg" width="300"></a></p>
+<p align="center"><a href="https://t.me/VeezVideoBot"><img src="https://github.com/levina-lab/video-stream/raw/main/driver/veezlogo.png"></a></p>
+<p align="center">
+    <br><b>Video Stream is a telegram bot project that's allow you to play video on telegram group video chat</b><br>
+</p>
 <p align="center">
     <a href="https://www.python.org/" alt="made-with-python"> <img src="https://img.shields.io/badge/Made%20with-Python-black.svg?style=flat-square&logo=python&logoColor=blue&color=red" /></a>
     <a href="https://github.com/levina-lab/video-stream/graphs/commit-activity" alt="Maintenance"> <img src="https://img.shields.io/badge/Maintained%3F-yes-red.svg?style=flat-square" /></a>
@@ -14,147 +13,76 @@ telegram bot project for streaming video on telegram video chat, powered by [py-
     <a href="https://github.com/levina-lab/video-stream/network/members"> <img src="https://img.shields.io/github/stars/levina-lab/video-stream?color=red&logo=github&logoColor=blue&style=flat-square" /></a>  
 </p>
 
+## 📊 Stats
+[![CodeFactor](https://www.codefactor.io/repository/github/levina-lab/video-stream/badge)](https://www.codefactor.io/repository/github/levina-lab/video-stream)
+
+## 🧪 Get `SESSION_NAME` from below:
+
+[![GenerateString](https://img.shields.io/badge/repl.it-generateString-yellowgreen)](https://replit.com/@levinalab/StringSession#main.py) ``Pyrogram``
+
+## ✨ Features
+- Music & Video stream support
+- MultiChat support
+- Playlist & Queue support
+- Skip, Pause, Resume, Stop feature
+- Music & Video downloader feature
+- Inline Search support
+- YouTube direct search support
+- YouTube/Local/Live/m3u8 stream support
+- Inline Search support
+- Control With Button support
+- Userbot Auto Join
+
 ## 🛠 Commands:
-- ``/vplay`` (reply to video/give yt url) - to start video streaming
-- ``/vstop`` - to stop video streaming
-- ``/song`` (song name) - to download song
-- ``/vsong`` (video name) - to download video
-- ``/vjoin`` - invite the assistant join to your group
-- ``/vleave`` - order the assistant to leave from your group
-- ``/lyric`` (query) - lyric scrapper
-- ``/tts`` (reply to text) - text to speech
-- ``/alive`` - check the bot alive status
-- ``/ping`` - check the bot ping status
-- ``/uptime`` - check the bot uptime status
-- ``/sysinfo`` - show the bot system information
+- `/play (query)` - play music from youtube
+- `/stream (radio link)` - stream a live streaming music
+- `/vplay (query)` - play video from youtube
+- `/vstream (live link)` - play video live streaming video
+- `/pause` - pause the streaming (admin only)
+- `/resume` - resume the streaming (admin only)
+- `/skip` - switch to next stream (admin only)
+- `/stop` - end the streaming (admin only)
+- `/vmute` - for mute the userbot on voice chat
+- `/vunmute` - for unmute the userbot on voice chat
+- `/playlist` - show you all the current stream list
+- `/song (query)` - download music from youtube
+- `/video (query)` - download video from youtube
+- `/userbotjoin` - invite the userbot to join group (admin only)
+- `/userbotleave` - instruct userbot to leave the group (admin only)
+- `/leaveall` - order the userbot to leave from all group (sudo only)
+- `/clean` - clean all raw files
+- `/rmd` - clean all downloaded files
 
-## 🧙🏻‍♂️ Sudo Only:
-- ``/rmd`` - clear all downloaded files
-- ``/rmw`` - clear all downloaded raw files
-- ``/leaveall`` - order the assistant to leave from all group
-
-📝 Note: From now, /vstream & /vstop command can only be used by group admins.
-
-## 🧪 Get SESSION_NAME from below:
-
-TAP THIS: [![GenerateString](https://img.shields.io/badge/repl.it-generateString-yellowgreen)](https://replit.com/@levinalab/StringSession#main.py)
-
-## 💜 Deploy To Heroku
-The easy way to host this bot, deploy to Heroku
+## Heroku Deployment 💜
+The easy way to host this bot, deploy to Heroku, Change the app country to Europe (it will help to make the bot stable).
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/levina-lab/video-stream)
 
-## 🚄 Deploy To Railway
-[![Deploy+on+Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/levina-lab/video-stream&envs=API_ID,API_HASH,BOT_TOKEN,BOT_USERNAME,ASSISTANT_NAME,SESSION_NAME,SUDO_USERS,DURATION_LIMIT)
-
-## 🌀 Run On Workflows
-
-- fork this repository
-- Go to your forked repository settings
-- Scroll down and select the `secrets` tab
-- Click on `New repository secret` button
-- Add the environmental vars as mentioned here
-- Then create new file with structure `.github/workflows/run.yml`
-- Now in `run.yml` file, fill with this code below, just copy it and paste in `run.yml` file
-
-
-<details>
-  <summary>
-    <b>View code</b>
-  </summary>  
+## VPS Deployment 📡
 
 ```sh
-name: Run on workflows
-on:
-    schedule:
-      - cron: "0 */6 * * *"
-    push:
-      branches: [ main ]
-    workflow_dispatch:
-    
-env:
-  API_ID: "${{ secrets.API_ID }}"
-  API_HASH: "${{ secrets.API_HASH }}"
-  SESSION_NAME: "${{ secrets.SESSION_NAME }}"
-  BOT_USERNAME: "${{ secrets.BOT_USERNAME }}"
-  ASSISTANT_NAME: "${{ secrets.ASSISTANT_NAME }}"
-  DURATION_LIMIT: "${{ secrets.DURATION_LIMIT }}"
-  BOT_TOKEN: "${{ secrets.BOT_TOKEN }}"
-  SUDO_USERS: "${{ secrets.SUDO_USERS }}"
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-       - uses: actions/checkout@v2
-         with:
-            ref: beta
-       - uses: styfle/cancel-workflow-action@0.9.0
-         name: "Cancelling duplicate workflow runs"
-         with:
-            all_but_latest: true
-            access_token: ${{ github.token }}
-       - uses: actions/setup-node@v2
-         with:
-            node-version: '16'
-       - name: Set up Python 3.9
-         uses: actions/setup-python@v2.2.2
-         with:
-           python-version: 3.9
-       - name: cloning repo and install
-
-         continue-on-error: true
-         run: |
-           sudo apt -qq update && sudo apt -qq install -y --no-install-recommends ffmpeg neofetch
-           pip3 install -r requirements.txt
-          #  echo "API_ID=${{ secrets.API_ID }} | tee .env
-          #  echo "API_HASH=${{ secrets.API_HASH }} | tee -a .env
-          #  echo "BOT_USERNAME=${{ secrets.BOT_USERNAME }} | tee -a .env
-          #  echo "ASSISTANT_NAME=${{ secrets.ASSISTANT_NAME }} | tee -a .env
-          #  echo "SESSION_NAME=${{ secrets.SESSION_NAME }} | tee -a .env
-          #  echo "DURATION_LIMIT=${{ secrets.DURATION_LIMIT }} | tee -a .env
-          #  echo "SUDO_USERS=${{ secrets.SUDO_USERS }} | tee -a .env
-          #  echo "BOT_TOKEN=${{ secrets.BOT_TOKEN }} | tee -a .env || echo "Proceeding with bot"
-          #  cat .env
-       - name: Running
-         timeout-minutes: 350
-         continue-on-error: true
-         run: |
-           python3 -m bot
-           echo "Bot Died"
-```
-</details>
-
-
-- After adding all, Go to the Actions tab and start/run the workflows
-
-## VPS Deployment
-```sh
-- sudo apt update && upgrade -y
-- sudo apt install python3-pip -y virtualenv
-- sudo apt install ffmpeg -y
-- nvm install v16.5.0
-- npm i -g npm
-- git clone https://github.com/levina-lab/video-stream
-- cd video-stream
-- virtualenv venv #Create Virtual Environment.
-- source venv/bin/activate #Activate Virtual Environment
-- pip3 install --upgrade pip
-- pip3 install -U -r requirements.txt
-- cp -r sample.env local.env
-- nano local.env #Fill it with your variables value.
-- python3 -m bot
+sudo apt update && apt upgrade -y
+sudo apt install git curl python3-pip ffmpeg -y
+pip3 install -U pip
+curl -sL https://deb.nodesource.com/setup_16.x | bash -
+sudo apt-get install -y nodejs
+npm i -g npm
+git clone https://github.com/levina-lab/video-stream # clone the repo.
+cd video-stream
+pip3 install -U -r requirements.txt
+cp example.env .env # use vim to edit ENVs
+vim .env # fill up the ENVs (Steps: press i to enter in insert mode then edit the file. Press Esc to exit the editing mode then type :wq! and press Enter key to save the file).
+python3 main.py # run the bot.
 ```
 
-# Special Credits 💖
+# Credits 💖
 
 - [Levina](https://github.com/levina-lab) ``Dev``
-- [Sammy-XD](https://github.com/Sammy-XD) ``Dev``
 - [Zxce3](https://github.com/Zxce3) ``Dev``
 - [DoellBarr](https://github.com/DoellBarr) ``Dev``
 - [tofikdn](https://github.com/tofikdn) ``Dev``
-- [Laky's](https://github.com/Laky-64) for [``pytgcalls``](https://github.com/MarshalX)
+- [Hunter-XDD](https://github.com/Hunter-XDD) ``Dev``
+- [Laky's](https://github.com/Laky-64) for [``py-tgcalls``](https://github.com/pytgcalls/pytgcalls)
 - [Dan](https://github.com/delivrance) for [``Pyrogram``](https://github.com/pyrogram)
 
 ### Support & Updates 🎑

@@ -1,7 +1,5 @@
-# Copyright (C) 2021 By VeezMusicProject
-
+from config import admins
 from typing import Dict, List
-from config import Veez
 
 
 admins: Dict[int, List[int]] = {}
